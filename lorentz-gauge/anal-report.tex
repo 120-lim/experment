@@ -1,0 +1,206 @@
+\documentclass{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{here}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{listings}
+\title{解析学XCレポート}
+\author{}
+\begin{document}
+\maketitle
+
+\section{}
+定義に従って、$(Kx,y)$を計算すると、以下の式のようになる。
+\begin{equation}
+\int_0^T y(t)\{\int^t_0 m(t,s)x(s) ds \} dt
+\end{equation}
+領域$D$を以下のように定義すると、上式はこの領域での重積分と等価である。
+\begin{equation}
+D = \{(s,t)|s \geq 0,t \leq T,t\geq s \}
+\end{equation}
+この積分を、式(1)とは逆の順番で反復積分の形に書くと、
+\begin{equation}
+\int^T_0 x(s)\{\int^T_{T-s} y(t)\cdot m(t,s) dt\} ds
+\end{equation}
+となる。
+よって、
+\begin{equation}
+(K^{\star}y)(s) = \int^T_{T-s} m(t,s)y(t) dt
+\end{equation}
+と定めれば、$(Kx,y) = (x,K^{\star}y)$が成立する。
+
+\section{}
+\subsection{}
+自由落下において、以下の式が成立する。
+\begin{equation}
+x(t) = h - \frac{1}{2} gt^2
+\end{equation}
+よって、$h,x(t_0),t_0$が分かっていれば、以下の式で$g$は定まる。
+\begin{equation}
+g = \frac{2\{h-x(t_0)\}}{t_0^2}
+\end{equation}
+
+\subsection{}
+今回は、以下の微分方程式を解けば良い。
+\begin{equation}
+\frac{d^2 x}{dt^2} = -g - k\frac{dx}{dt}
+\end{equation}
+この方程式に対して、$t=0$で、$v=0,x=h$という初期条件を課して解を求めると、
+\begin{equation}
+x = -\frac{g}{k^2}e^{-kt} - \frac{gt}{k} + \frac{g}{k^2} + h
+\end{equation}
+となる。これを変形すると、
+\begin{equation}
+\frac{h-x}{gt^2} = \frac{e^{-kt} + kt -1}{(kt)^2}
+\end{equation}
+のようになる。ここで、$t=t_0$と固定した状況を考えていて、$k$についての上記の
+方程式を解くことを考える。
+それに先立って、
+\begin{equation}
+f(x) = \frac{e^{-x} + x -1}{x^2}
+\end{equation}
+の性質を調べる。初めにこれの逆関数は具体的には求まらない。そこで、$x>0$において
+単調に増加もしくは減少しているか調べる。もし、そのようになっていれば、式(9)に
+対して一意な解を見つけることができる。
+まず、$f^{\prime}(x)$を調べたい。
+\begin{equation}
+x^3\cdot f^{\prime} (x) = -(x+2)e^{-x} + (2-x)
+\end{equation}
+が成立する。
+これを調べると、$f$は単調に減少する関数であることが分かる。
+これは、以下のように示せる。
+\\
+まず、
+\begin{equation}
+4 < (1 + e^{-x})(x+2)(=g(x)とする) \Leftrightarrow f^{\prime} < 0
+\end{equation}
+が式(11)を変形することによって示せる。
+$g(x) =4$で、微分を繰り返すと、
+\begin{equation}
+g' = 1-(x+1)e^{-x},g'' = xe^{-x},g''' = (1-x)e^{-x}
+\end{equation}
+であるから、$x>0$で$4<g(x)$が成立し、(テイラーの定理、平均値の定理などを用いて)
+$f$は単調に減少する関数であることが分かる。
+\\
+よって、$f(x)$の値が与えられれば、それを用いて、$x$を求めることができる。
+(9)式を書き換えてやると、
+\begin{equation}
+\frac{h-x(t_0)}{gt_0^2} = f(kt_0)
+\end{equation}
+なので、上記の$f$の性質から、$k$は求まる。
+尚、$f(x) < \frac{1}{2}$ではあるが、それは、式(8)で与えた微分方程式の解を
+調べてやれば、式(14)の左辺は明らかに$\frac{1}{2}$よりも小さいので、問題はない。
+
+\section{}
+\subsection{}
+\begin{equation}
+E'=\int^1_0 2uu_t dx,E''=\int2uu_{tt}+2(u_t)^2 dx
+\end{equation}
+が成立する。
+\\
+ここで、$E''$について変形を行う。問題文の微分方程式を代入して、
+\begin{equation}
+\int^1_0 uu_{tt} dx = \int^1_0 uu_{xxt} dx
+\end{equation}
+ここで、境界条件の$u(0,t)=u(1,t)=0$と、ここから直ちに従う$u_t(0,t)=u_t(1,t)=0$を用いて
+上式を2回部分積分すると、
+\begin{equation}
+\int^1_0 uu_{xxt} dx = [uu_{xt}]^1_0 - \int^1_0 u_xu_{xt}dx = -[ u_xu_t ]^1_0
++\int^1_0 u_t^2 dx
+\end{equation}
+という計算ができて、結局
+\begin{equation}
+E'' = 4\int^1_0 u_t^2 dx
+\end{equation}
+を得る。
+\\
+次に今回与えられた境界条件のもとで微分方程式を解くことを考える。
+今回はなめらかな関数を考えているので、フーリエ級数にして関数を展開して考える。
+境界条件を考えると、
+\begin{equation}
+u(x,t) = a_n(t)\cdot \sin(n\pi x)
+\end{equation}
+の和の形で書けるはず。これを微分方程式に代入してやると、$a_n(t)$を計算することができて、
+\begin{eqnarray}
+u(x,t) = \sum^\infty_1 a_n e^{-n^2\pi t} \sin(n\pi x)
+\end{eqnarray}
+という形の和になるはず。ここで、各$a_n$は初期条件によって定まる定数である。
+さらに、以下の直交性の関係式が成立する。
+\begin{equation}
+\int^1_0 \sin(m\pi x)\sin(n\pi x) dx = \frac{1}{2}\delta_{mn}
+\end{equation}
+これらを用いて、$E,E',E''$を計算すると、それぞれ以下のようになる。
+\begin{eqnarray}
+E''=2\sum^\infty_1 n^4\pi^2a_n^2e^{-2n^2\pi t}
+\end{eqnarray}
+\begin{eqnarray}
+E'= -\sum^\infty_1 n^2\pi a_n^2 e^{-2n^2\pi t}
+\end{eqnarray}
+\begin{eqnarray}
+E = \frac{1}{2}\sum^\infty_1 a_n^2 e^{-2n^2\pi t}
+\end{eqnarray}
+これを用いて今回計算したい$E''E-E'^2$を計算すると、以下のようになる。
+\begin{eqnarray}
+E''E-E'^2 = \sum^\infty_{m=1}\sum^\infty_{n=1} \{ m^2(m^2-n^2)\pi^2a_m^2a_n^2
+e^{-2(m^2+n^2)\pi t}\}
+\end{eqnarray}
+この式の符号を評価してやれば良いのであるが、この式が収束することを既知の事実とすれば、
+和をとる順番は関係ないことを用いる。$m=n$の項は明らかに0になるので、$m\neq n$の項を
+足し合わせる際に、$(m,n) = (i,j),(j,i)$のものを足し、それを、$i> j$の範囲で
+足し合わせたものを考えてやればよい。
+\\
+$(m,n)=(i,j),(j,i)$では(25)式おける$\pi^2$以下の部分は共通となるので、$m^2(m^2-n^2)$を
+考えればよい。$i^2(i^2-j^2)+j^2(j^2-i^2) = (i^2-j^2)^2$となるので、結局式(25)は以下の
+形に書き換えることができる。
+\begin{eqnarray}
+EE''-E'^2 = \sum_{i>j} \{ (i^2-j^2)^2 \pi^2 a_i^2a_j^2e^{-2(i^2+j^2)\pi t} \}
+\end{eqnarray}
+この式は明らかに正の値をとるものである。
+
+\subsection{}
+次に$(\log E)',(\log E )''$を考える。以下の式が成立する。
+\begin{equation}
+(\log E)' = \frac{E'}{E},(\log E)'' = \frac{E''E-E'^2}{E^2}
+\end{equation}
+前節の式(23),(24),(26)と比較すると分かるように、$(\log E)'<0,(\log E)''>0$である。
+これを用いると、時刻$t_0<T$での$(\log E)$の値は、以下の式を満たす。
+\begin{equation}
+\log E(T) < \log E(t_0) < \frac{(T-t_0)\log M + t_0 \log E(T)}{T}
+\end{equation}
+この式から$\log$を消去すると、
+\begin{equation}
+E(T)<E(t_0)<E(T)^{\frac{t_0}{T}}\cdot M^{\frac{T-t_0}{T}}
+\end{equation}
+という評価式を得ることができる。
+
+
+\section{}
+\subsection{}
+まず、$u(x,t),f(x)$をフーリエ級数で展開する。
+\begin{eqnarray}
+u(x,t)=\sum a_n(t)\sin(\pi nx),f(x)=\sum b_n \sin(\pi nx)
+\end{eqnarray}
+これを今回の微分方程式に代入すると、初期条件$a_n(0) = 0$のもとに、
+\begin{equation}
+a_n(t)'=-(n^2\pi^2)a_n(t) + b_n \mu(t)
+\end{equation}
+を解いて、その解を決定すれば、全体の$u(x,t)$は定まる。これを解くことを考える。
+\begin{equation}
+a_n(t) = e^{-n^2 \pi^2 t}\cdot c_n(t)
+\end{equation}
+と置き換えて、微分方程式を書き直す。
+\begin{equation}
+c_n'(t) = b_ne^{n^2 \pi^2 t} \mu(t)
+\end{equation}
+を解いて、$a_n$に戻すと、
+\begin{equation}
+a_n(t) = e^{-n^2\pi^2 t}\int_0^t b_n e^{n^2\pi^2 t_0}\mu(t_0) dt_0
+\end{equation}
+となる。
+
+\subsection{}
+今回与えられた条件より、$b_n$は既知である。
+
+
+
+\end{document}

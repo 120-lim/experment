@@ -1,0 +1,43 @@
+\documentclass{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{here}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{量子力学レポート}
+\author{}
+\begin{document}
+\maketitle
+
+\makeatletter
+    \renewcommand{\theequation}{%
+    \thesection.\arabic{equation}}
+    \@addtoreset{equation}{section}
+  \makeatother
+
+
+距離空間とは、点の集合$M$で、以下の性質を満たす距離関数$d$を持つもの。
+\\
+$d:M\times M \rightarrow \mathcal{R}$は$M$の点の組$(x,y)$に対し、ある実数を対応させる
+関数で、次の(a),(b),(c)を満たすもの。
+\\
+\begin{equation}
+(a):d(x,y) \geq 0 かつ d(x,y)=0 \Leftrightarrow x = y　(正値性)
+\end{equation}
+\begin{equation}
+(b):d(x,y) = d(y,x)　(対称性)
+\end{equation}
+\begin{equation}
+(c):d(x,z) \leq d(x,y) + d(y,z) (三角不等式)
+\end{equation}
+
+例1:ユークリッド距離は明らかに上の3つを満たす。
+\\
+例2:離散距離を以下のように定義すると、これも3つをみたす。
+\\
+$d(x,y) = 0$ (when  $x=y)$,
+\\
+$d(x,y) = 1(otherwise)$ 
+
+\end{document}
+
+ 
