@@ -4,30 +4,31 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{listings}
+\usepackage{bm}
 \title{}
 \author{}
 \begin{document}
 \maketitle
 
 \begin{equation}
-\vec{A} = \int d^4r' \frac{\vec{j}(\vec{r'},t)\delta(t'-t-\frac{R}{c})}{|\vec{r}-\vec{r'}|}
+\bm{A} = \int d^4r' \frac{\bm{j}(\bm{r'},t)\delta(t'-t-\frac{R}{c})}{|\bm{r}-\bm{r'}|}
 \end{equation}
 \begin{equation}
-\nabla \cdot \vec{A} = \int d^4\vec{r'} \frac{\nabla^\prime\cdot(\vec{j(r',t')}\delta(t'-t_R)) + \vec{j(r',t')}\nabla\cdot\delta}{|\vec{r}-\vec{r'}|}
+\nabla \cdot \bm{A} = \int d^4\bm{r'} \frac{\nabla^\prime\cdot(\bm{j(r',t')}\delta(t'-t_R)) + \bm{j(r',t')}\nabla\cdot\delta}{|\bm{r}-\bm{r'}|}
 \end{equation}
 ここで、
 \begin{equation}
-\nabla\cdot\frac{1}{|\vec{r}-\vec{r'}|}=-\nabla^\prime\cdot\frac{1}{|\vec{r}-\vec{r'}|}
+\nabla\cdot\frac{1}{|\bm{r}-\bm{r'}|}=-\nabla^\prime\cdot\frac{1}{|\bm{r}-\bm{r'}|}
 \end{equation}
 を用いて部分積分をすることで、(2)式の分子第1項を得る。
 式(2)の$\delta$の微分の部分がキャンセルして、電流微分のみ生き残る。
 \begin{equation}
-\phi = \int d^4 r' \frac{\rho(r',t')\delta(t'-t_R)}{|\vec{r}-\vec{r'}|}
+\phi = \int d^4 r' \frac{\rho(r',t')\delta(t'-t_R)}{|\bm{r}-\bm{r'}|}
 \end{equation}
 を$t$微分すると、分子には
 \begin{equation}
 (\frac{\partial \rho(r',t')}{\partial t'})\delta(t'-t_R) =
-(\nabla^\prime\vec{j}(r',t'))\delta(t'-t_R)
+(\nabla^\prime\bm{j}(r',t'))\delta(t'-t_R)
 \end{equation}
 が残る。ここで、$\delta$関数に関する以下の公式を用いた。
 \begin{equation}
@@ -36,12 +37,12 @@
 \end{equation}
 これらの式から以下のLorentz gaugeの式を遅延ポテンシャルは満たしていることがわかる。
 \begin{equation}
-\nabla\cdot\vec{A} - \frac{1}{c^2}\frac{\partial \phi}{\partial t}=0
+\nabla\cdot\bm{A} - \frac{1}{c^2}\frac{\partial \phi}{\partial t}=0
 \end{equation}
 \\
 
 なお、静電場のCoulomb gaugeの確認に関しては、上の計算から$\delta$関数を除去してやれば、
-\[ \nabla\cdot \vec{A} = 0\]
+\[ \nabla\cdot \bm{A} = 0\]
 を得ることが出来る。
 
 \end{document}
