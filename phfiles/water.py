@@ -10,13 +10,16 @@ def min(x,y):
    else:
       return y
 
+import sys
+
+argv = sys.argv
+
 number = 7
-water = (1,5,2,1,2,4,6)
 
 out = 0
 for num in range(0,number-1):
     for num2 in range(num,number):
-        volume = min(water[num2],water[num])*(num2-num)
+        volume = min(int(argv[num2+1]),int(argv[num+1]))*(num2-num)
         out = max(out,volume)
 
 print "maximam volume = " + str(out)
