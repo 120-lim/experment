@@ -14,12 +14,18 @@ import sys
 
 argv = sys.argv
 
-number = 7
+number = int(argv[1])
+
+if number != (len(argv) - 2):
+   print"Usage: n,h_1,...h_n"
+   print"error number of pole(n) and the number you inputted is not same"
+   quit()
 
 out = 0
+
 for num in range(0,number-1):
     for num2 in range(num,number):
-        volume = min(int(argv[num2+1]),int(argv[num+1]))*(num2-num)
+        volume = min(int(argv[num2+2]),int(argv[num+2]))*(num2-num)
         out = max(out,volume)
 
 print "maximam volume = " + str(out)
