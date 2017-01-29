@@ -19,4 +19,4 @@ for num in range(0,number-1):
         volume = min(water[num2],water[num])*(num2-num)
         out = max(out,volume)
 
-print "maximam =" + str(out)
+print "maximam volume = " + str(out)
