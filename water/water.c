@@ -26,7 +26,7 @@ int main(){
    char a[20000];
    char *tp;
    printf("Enter the number of poles: ");
-   fgets(a, sizeof(a), stdin);
+   fgets(a, sizeof(a), stdin);/*scanfの後にfgetsが入るのは好ましくない*/
    number = atoi(a);
    int b[number];
    int num;
