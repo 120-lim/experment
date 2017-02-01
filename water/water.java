@@ -15,17 +15,31 @@ public class water {
 	}
 
 	public static void main(String[] args){
-		System.out.println("unko");
+		if(args.length < 3){
+		   System.out.println("Usage:number of poles,1st pole hight,2ndpole...");
+		   System.exit(1);
+		}
 		int a = 100;
+		int number = Integer.parseInt(args[0]);
+		if(args.length != number+1){
+		   System.out.println("Number of poles and number you entered differed");
+		   System.exit(1);
+		}
+		int b[] = new int[number+1];
 		int i,j;
-		System.out.println(a);
-
+		int volume=0;
+		for(i=1;i<number+1;++i){
+			b[i] = Integer.parseInt(args[i]);
+		}
+		
 		//ここからメインの計算
-		for(i=0;i<numberi-1;++i){
-			for(j=i+1;j<number;++j){
+		for(i=1;i<number;++i){
+			for(j=i+1;j<number+1;++j){
 				volume = max((min(b[i],b[j])*(j-i)),volume);
 			}
 		}
-		System.out.println("maximam is" volume);
+		System.out.print("maximam is"); 
+		System.out.println(volume);
+
 	}
 }
