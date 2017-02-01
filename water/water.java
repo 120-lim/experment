@@ -19,7 +19,6 @@ public class water {
 		   System.out.println("Usage:number of poles,1st pole hight,2ndpole...");
 		   System.exit(1);
 		}
-		int a = 100;
 		int number = Integer.parseInt(args[0]);
 		if(args.length != number+1){
 		   System.out.println("Number of poles and number you entered differed");
@@ -38,7 +37,7 @@ public class water {
 				volume = max((min(b[i],b[j])*(j-i)),volume);
 			}
 		}
-		System.out.print("maximam is"); 
+		System.out.print("maximam is "); 
 		System.out.println(volume);
 
 	}
