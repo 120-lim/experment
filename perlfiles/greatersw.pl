@@ -3,7 +3,8 @@ use strict;
 use warnings;
 
 my (@argv) = @ARGV;
-print "hello world \n";
+@argv = &greaterswap(@argv);
+print "@argv \n";
 
 sub greaterswap{
 	(my $x,my $y) = @_;
