@@ -15,10 +15,10 @@ if ($num != $number + 1){
 my $volume = 0;
 for (my $i = 1;$i<$number;$i++){
 	for (my $j = 2;$j<$number+1;$j++){
-		&max(&min($high[$i],$high[$j])*($j-$i),$volume);
+		$volume = &max(&min($high[$i],$high[$j])*($j-$i),$volume);
 	}
 }
-print $volume;
+print "$volume\n";
 
 sub max{
 	(my $x,my $y) = @_;
