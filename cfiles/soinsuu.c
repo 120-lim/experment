@@ -16,14 +16,34 @@ int main(int argc, char**  argv){
 		exit(1);
 	}
 	int i=2;
-	printf("(");
+	int j=0;
+	printf("%d = ",N);
 	while(i*i <= N){
 		if(N%i == 0){
 			N = N/i;
-			printf("%d ",i);
+			j += 1;
+			if(N == i){
+				printf("%d^%d\n",i,j+1);
+				exit(1);
+			}
+			if(N < i*i){
+				if(j > 1){
+					printf("%d^%d * ",i,j);
+				}
+				if(j == 1){
+					printf("%d * ",i);
+				}
+			}
 		}else{
-			i = i+1;
+			if(j > 1){
+				printf("%d^%d * ",i,j);
+			}
+			if(j == 1){
+				printf("%d * ",i);
+			}
+			i = i + 1;
+			j = 0;
 		}
 	}
-	printf("%d)\n",N);
+	printf("%d\n",N);
 }
