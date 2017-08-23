@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<time.h>
 #include<omp.h>
-#define num_steps 100000000
+#define num_steps 1000000000
 
 int main(void){
     clock_t t1, t2;
